@@ -4,4 +4,4 @@ Starter Next Project
 
 # License
 
-[License](./LICENSE)
+[WTFPL](./LICENSE)
