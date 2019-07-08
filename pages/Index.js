@@ -2,19 +2,35 @@ import Layout from '../comps/Layout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
+const ShowLink = ({show}) => (
+  <li key={show.id}>
+    <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
+      <a>{show.name}</a>
+    </Link>
+
+    <style jsx>{`
+      a {
+        color: red;
+      }
+    `}</style>
+  </li>
+)
+
 const Index = (props) => (
   <Layout>
     <h1>Shows</h1>
 
     <ul>
       {props.shows.map(show => (
-        <li key={show.id}>
-          <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
+        <ShowLink key={show.id} show={show}></ShowLink>
       ))}
     </ul>
+
+    <style jsx>{`
+      h1, a {
+        font-family: 'Arial';
+      }
+    `}</style>
   </Layout>
 )
 
